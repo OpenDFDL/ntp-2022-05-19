@@ -18,8 +18,8 @@
                    byteOrder="bigEndian"
                    bitOrder="mostSignificantBitFirst"
                    encoding="ASCII"
-				   lengthKind='explicit'
-				   lengthUnits='bits'
+				           lengthKind='explicit'
+				           lengthUnits='bits'
                    alignmentUnits="bits"
                    alignment="1"
                    occursCountKind="expression"

@@ -5,6 +5,7 @@
 	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+    xmlns:dfdlx="http://www.ogf.org/dfdl/dfdl-1.0/extensions"
 	xmlns:ntp="urn:ntp"
 	targetNamespace="urn:ntp"
 	elementFormDefault="unqualified">
@@ -64,9 +65,53 @@
 	  </sequence>
   </complexType>
 
+  <xs:simpleType name="enumString" dfdl:lengthKind="delimited" dfdl:alignment="8">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumBase" dfdl:lengthKind="explicit">
+    <restriction base="xs:unsignedInt"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="uint2" dfdl:length="2">
+    <xs:restriction base="ntp:enumBase">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="uint3" dfdl:length="3">
+    <xs:restriction base="ntp:enumBase">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leapIndicator" dfdlx:repType="ntp:uint2">
+    <xs:restriction base="ntp:enumString">
+      <enumeration value="NO_WARNING" dfdlx:repValues="0"/>
+      <enumeration value="LAST_61" dfdlx:repValues="1"/>
+      <enumeration value="LAST_59" dfdlx:repValues="2"/>
+      <enumeration value="UNKNOWN" dfdlx:repValues="3"/>
+      <pattern value="NO_WARNING|LAST_61|LAST_59"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="associationModes" dfdlx:repType="ntp:uint3">
+    <xs:restriction base="ntp:enumString">
+      <enumeration value="RESERVED" dfdlx:repValues="0"/>
+      <enumeration value="SYMMETRIC_ACTIVE" dfdlx:repValues="1"/>
+      <enumeration value="SYMMETRIC_PASSIVE" dfdlx:repValues="2"/>
+      <enumeration value="CLIENT" dfdlx:repValues="3"/>
+      <enumeration value="SERVER" dfdlx:repValues="4"/>
+      <enumeration value="BROADCAST" dfdlx:repValues="5"/>
+      <enumeration value="NTP_CONTROL_MSG" dfdlx:repValues="6"/>
+      <enumeration value="PRIVATE" dfdlx:repValues="7"/> <!-- 111 -->
+      <pattern value="RESERVED|SYMMETRIC_ACTIVE|SYMMETRIC_PASSIVE|CLIENT|SERVER|BROADCAST|NTP_CONTROL_MSG"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+<!--
   <simpleType name="LI" dfdl:length="2">
 	  <restriction base="xs:unsignedByte"/>
   </simpleType>
+-->
 
   <simpleType name="VN" dfdl:length="3">
 	  <restriction base="xs:unsignedByte"/>
@@ -90,6 +135,6 @@
 
   <simpleType name="RefId" dfdl:length="32">
 	  <restriction base="xs:int"/>
-  </simpleType>        
+  </simpleType>
 
 </schema>

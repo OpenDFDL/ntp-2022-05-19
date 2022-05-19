@@ -8,8 +8,10 @@
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:ntp="urn:ntp"
+  xmlns:ex="http://example.com"
   defaultRoundTrip="onePass">
 
+<!--
   <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
     <document>
       <documentPart type="file">test_01.bin</documentPart>
@@ -17,6 +19,40 @@
     <infoset>
       <dfdlInfoset type="file">test_01.bin.xml</dfdlInfoset>
     </infoset>
+  </parserTestCase>
+-->
+
+  <defineSchema name="enum" useDefaultNamespace="false">
+    <xs:import namespace="urn:ntp" schemaLocation="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd"/>
+    <dfdl:format ref="ntp:baseFormat" />
+    <xs:element name="testLI" type="ntp:leapIndicator"/>
+  </defineSchema>
+
+  <parserTestCase name="test_ntp_li_01" root="testLI" model="enum">
+    <document>
+      <documentPart type="bits">10</documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset>
+        <ex:testLI>LAST_59</ex:testLI>
+      </dfdlInfoset>
+    </infoset>
+  </parserTestCase>
+
+  <parserTestCase name="test_ntp_li_02" root="testLI" model="enum" validation="on">
+    <document>
+      <documentPart type="bits">11</documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset>
+        <ex:testLI>UNKNOWN</ex:testLI>
+      </dfdlInfoset>
+    </infoset>
+    <validationErrors>
+      <error>unknown</error>
+      <error>testli</error>
+      <error>pattern</error>
+    </validationErrors>
   </parserTestCase>
 
   <!-- example hex data from pcap file ntp-only.pcap
