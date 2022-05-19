@@ -1,4 +1,5 @@
 .bsp
-target
+target/
 *.swp
 tags
+.idea/
