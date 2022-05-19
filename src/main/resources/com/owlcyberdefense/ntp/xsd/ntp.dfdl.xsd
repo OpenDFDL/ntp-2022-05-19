@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <schema
-  xmlns:xs="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://www.w3.org/2001/XMLSchema"
-  xmlns:fn="http://www.w3.org/2005/xpath-functions"
-  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
-  xmlns:ntp="urn:ntp"
-  targetNamespace="urn:ntp"
-  elementFormDefault="unqualified">
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+	xmlns:ntp="urn:ntp"
+	targetNamespace="urn:ntp"
+	elementFormDefault="unqualified">
 
-  <include schemaLocation="baseFormat.dfdl.xsd" />
-  <include schemaLocation="types.dfdl.xsd" />
+	<include schemaLocation="baseFormat.dfdl.xsd" />
+	<include schemaLocation="types.dfdl.xsd" />
 
-  <annotation>
-    <appinfo source="http://www.ogf.org/dfdl/">
-      <dfdl:format ref="ntp:baseFormat" />
-    </appinfo>
-  </annotation>
+	<annotation>
+		<appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format ref="ntp:baseFormat" />
+		</appinfo>
+	</annotation>
 
-  <element name="Ntp" type="ntp:ntp"/>
+	<element name="Ntp" type="ntp:ntp" dfdl:lengthKind='implicit' />
 
-    <complexType name="ntp">
-      <sequence>
+	<complexType name="ntp">
+		<sequence>
 
-      </sequence>
-    </complexType>
+			<element name="LI" type="ntp:LI"/>
+			<element name="VN" type="ntp:VN"/>
+			<element name="Mode" type="ntp:Mode"/>
+			<element name="Stratum" type="ntp:Stratum"/>
+			<element name="Poll" type="ntp:Poll"/>
+			<element name="Precision" type="ntp:Precision"/>
+			<element name="RootDelay" type="ntp:ntpShortTime" dfdl:lengthKind='implicit'/>
+			<element name="RootDispersion" type="ntp:ntpShortTime" dfdl:lengthKind='implicit'/>
+			<element name="ReferenceID" type="ntp:RefId"/>
+			<element name="ReferenceTimeStamp" type="ntp:ntpTimeStamp" dfdl:lengthKind='implicit'/>
+			<element name="OriginTimeStamp" type="ntp:ntpTimeStamp" dfdl:lengthKind='implicit'/>
+			<element name="ReceiveTimeStamp" type="ntp:ntpTimeStamp" dfdl:lengthKind='implicit'/>
+			<element name="TransmitTimeStamp" type="ntp:ntpTimeStamp" dfdl:lengthKind='implicit'/>
 
+		</sequence>
+	</complexType>
 </schema>
