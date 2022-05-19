@@ -23,9 +23,9 @@
 	<complexType name="ntp">
 		<sequence>
 
-			<element name="LI" type="ntp:leapIndicator"/>
+			<element name="LI" type="ntp:leapIndicatorEnum"/>
 			<element name="VN" type="ntp:VN"/>
-			<element name="Mode" type="ntp:associationModes"/>
+			<element name="Mode" type="ntp:associationModesEnum"/>
 			<element name="Stratum" type="ntp:Stratum"/>
 			<element name="Poll" type="ntp:Poll"/>
 			<element name="Precision" type="ntp:Precision"/>

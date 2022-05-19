@@ -32,6 +32,10 @@
         </sequence>
     </complexType>
 
+  <!-- The 64-bit timestamp format is used in packet headers and other
+		places with limited word size.  It includes a 32-bit unsigned seconds
+		field spanning 136 years and a 32-bit fraction field resolving 232
+		picoseconds.-->
 	<complexType name="ntpTimeStamp">
 		<xs:sequence>
 			<xs:element name="seconds"
@@ -103,15 +107,28 @@
       <enumeration value="BROADCAST" dfdlx:repValues="5"/>
       <enumeration value="NTP_CONTROL_MSG" dfdlx:repValues="6"/>
       <enumeration value="PRIVATE" dfdlx:repValues="7"/> <!-- 111 -->
+      <!-- Is a pattern needed here other than for testing? -->
       <pattern value="RESERVED|SYMMETRIC_ACTIVE|SYMMETRIC_PASSIVE|CLIENT|SERVER|BROADCAST|NTP_CONTROL_MSG"/>
     </xs:restriction>
   </xs:simpleType>
 
+<!--
   <xs:simpleType name="packetStratumEnum" dfdlx:repType="ntp:uint8">
-
+    <xs:restriction base="ntp:enumString">
+      <enumeration value="INVALID" dfdlx:repValues="0"/>
+      <enumeration value="PRIMARY_SERVER" dfdlx:repValues="1"/>
+-->
+      <!-- TODO Need a range here for secondary servers. Values: 2-15 /> -->
+<!--
+      <enumeration value="UNSYNCHRONIZED" dfdlx:repValues="16"/>
+-->
+      <!-- TODO Range of reserved values. Values: 17-255 /> -->
+<!--
+    </xs:restriction>
   </xs:simpleType>
+-->
 
-  <simpleType name="Mode" dfdl:length="3">
+  <simpleType name="VN" dfdl:length="3">
 	  <restriction base="xs:unsignedByte"/>
   </simpleType>
 

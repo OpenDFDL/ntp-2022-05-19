@@ -11,21 +11,10 @@
   xmlns:ex="http://example.com"
   defaultRoundTrip="onePass">
 
-<!--
-  <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
-    <document>
-      <documentPart type="file">test_01.bin</documentPart>
-    </document>
-    <infoset>
-      <dfdlInfoset type="file">test_01.bin.xml</dfdlInfoset>
-    </infoset>
-  </parserTestCase>
--->
-
   <defineSchema name="enum" useDefaultNamespace="false">
     <xs:import namespace="urn:ntp" schemaLocation="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd"/>
     <dfdl:format ref="ntp:baseFormat" />
-    <xs:element name="testLI" type="ntp:leapIndicator"/>
+    <xs:element name="testLI" type="ntp:leapIndicatorEnum"/>
   </defineSchema>
 
   <parserTestCase name="test_ntp_li_01" root="testLI" model="enum">
