@@ -47,10 +47,21 @@
         </xs:sequence>
     </complexType>
 
-    <complexType name="ntpDate">
-        <sequence>
+  <!-- 
+   The 128-bit date format is used where sufficient storage and word
+   size are available.  It includes a 64-bit signed seconds field
+   spanning 584 billion years and a 64-bit fraction field resolving .05
+   attosecond (i.e., 0.5e-18). For convenience in mapping between
+   formats, the seconds field is divided into a 32-bit Era Number field
+   and a 32-bit Era Offset field.
+  -->
 
-        </sequence>
-    </complexType>
+  <complexType name="ntpDate">
+    <sequence>
+      <xs:element name="eraNumber" type="xs:int" dfdl:length="32"/>
+      <xs:element name="eraOffset" type="xs:int" dfdl:length="32"/>
+      <xs:element name="fraction" type="xs:int" dfdl:length="64"/>
+    </sequence>
+  </complexType>
 
 </schema>
