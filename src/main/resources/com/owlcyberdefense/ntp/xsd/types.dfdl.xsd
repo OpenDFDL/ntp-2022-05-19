@@ -102,8 +102,8 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <simpleType name="Mode" dfdl:length="3">
-	  <restriction base="xs:unsignedByte"/>
+  <simpleType name="VN" dfdl:length="3">
+    <restriction base="xs:unsignedByte"/>
   </simpleType>
 
   <simpleType name="Stratum" dfdl:length="8">
