@@ -1,4 +1,4 @@
-package com.owlcyberdefense.ntp.ntp
+package com.owlcyberdefense.ntp
 
 import org.junit.AfterClass
 import org.junit.Test
@@ -6,7 +6,7 @@ import org.junit.Test
 import org.apache.daffodil.tdml.Runner
 
 object TestNtp {
-  lazy val runner = Runner("/com/owlcyberdefense/ntp/ntp/", "TestNtp.tdml")
+  lazy val runner = Runner("/com/owlcyberdefense/ntp/", "TestNtp.tdml")
 
   @AfterClass def shutDown: Unit = {
     runner.reset
