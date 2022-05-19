@@ -13,9 +13,24 @@
 
 	<annotation>
 		<appinfo source="http://www.ogf.org/dfdl/">
-			<dfdl:format ref="ntp:baseFormat" lengthKind="explicit"/>
+			<dfdl:format ref="ntp:baseFormat"/>
 		</appinfo>
 	</annotation>
+
+	<!--
+	Derive all explicit length integer types from these
+	base types.
+
+	Enables the overall schema to be lengthKind 'implicit' which
+	is needed for all the complex type elements.
+	-->
+	<simpleType name="sint" dfdl:lengthKind="explicit">
+		<restriction base="xs:int"/>
+	</simpleType>
+
+	<simpleType name="uint" dfdl:lengthKind="explicit">
+		<restriction base="xs:unsignedInt"/>
+	</simpleType>
 
 	<!-- NTP Short Format
 		 The 32-bit short format is used in delay and dispersion
@@ -26,8 +41,8 @@
 	-->
 	<complexType name="ntpShortTime">
 		<sequence>
-			<xs:element name="seconds" type="xs:unsignedInt" dfdl:length="16"/>
-			<xs:element name="fraction" type="xs:int" dfdl:length="16"/>
+			<xs:element name="seconds" type="ntp:uint" dfdl:length="16"/>
+			<xs:element name="fraction" type="ntp:sint" dfdl:length="16"/>
 		</sequence>
 	</complexType>
 
@@ -39,10 +54,10 @@
 	<complexType name="ntpTimeStamp">
 		<xs:sequence>
 			<xs:element name="seconds"
-				type="xs:unsignedInt"
+				type="ntp:uint"
 				dfdl:length="32"/>
 			<xs:element name="fraction"
-				type="xs:int"
+				type="ntp:sint"
 				dfdl:length="32"/>
 		</xs:sequence>
 	</complexType>
@@ -58,38 +73,38 @@
 
   <complexType name="ntpDate">
 	  <sequence>
-		  <xs:element name="eraNumber" type="xs:int" dfdl:length="32"/>
-		  <xs:element name="eraOffset" type="xs:int" dfdl:length="32"/>
-		  <xs:element name="fraction" type="xs:int" dfdl:length="64"/>
+		  <xs:element name="eraNumber" type="ntp:sint" dfdl:length="32"/>
+		  <xs:element name="eraOffset" type="ntp:sint" dfdl:length="32"/>
+		  <xs:element name="fraction" type="ntp:sint" dfdl:length="64"/>
 	  </sequence>
   </complexType>
 
   <simpleType name="LI" dfdl:length="2">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="VN" dfdl:length="3">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="Mode" dfdl:length="3">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="Stratum" dfdl:length="8">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="Poll" dfdl:length="8">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="Precision" dfdl:length="8">
-	  <restriction base="xs:unsignedByte"/>
+	  <restriction base="ntp:uint"/>
   </simpleType>
 
   <simpleType name="RefId" dfdl:length="32">
-	  <restriction base="xs:int"/>
+	  <restriction base="ntp:sint"/>
   </simpleType>        
 
 </schema>
