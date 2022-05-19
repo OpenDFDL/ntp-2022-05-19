@@ -23,10 +23,20 @@
         </sequence>
     </complexType>
 
-    <complexType name="ntpTimeStamp">
-        <sequence>
+<!--    The 64-bit timestamp format is used in packet headers and other
+        places with limited word size.  It includes a 32-bit unsigned seconds
+        field spanning 136 years and a 32-bit fraction field resolving 232
+        picoseconds.-->
 
-        </sequence>
+    <complexType name="ntpTimeStamp">
+        <xs:sequence>
+            <xs:element name="seconds"
+                        type="xs:unsignedInt"
+                        dfdl:length="32"/>
+            <xs:element name="fraction"
+                        type="xs:int"
+                        dfdl:length="32"/>
+        </xs:sequence>
     </complexType>
 
     <complexType name="ntpDate">
