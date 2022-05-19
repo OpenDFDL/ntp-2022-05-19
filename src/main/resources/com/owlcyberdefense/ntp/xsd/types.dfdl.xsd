@@ -78,7 +78,12 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="leapIndicator" dfdlx:repType="ntp:uint2">
+  <xs:simpleType name="uint8" dfdl:length="8">
+    <xs:restriction base="ntp:enumBase">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="leapIndicatorEnum" dfdlx:repType="ntp:uint2">
     <xs:restriction base="ntp:enumString">
       <enumeration value="NO_WARNING" dfdlx:repValues="0"/>
       <enumeration value="LAST_61" dfdlx:repValues="1"/>
@@ -88,7 +93,7 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="associationModes" dfdlx:repType="ntp:uint3">
+  <xs:simpleType name="associationModesEnum" dfdlx:repType="ntp:uint3">
     <xs:restriction base="ntp:enumString">
       <enumeration value="RESERVED" dfdlx:repValues="0"/>
       <enumeration value="SYMMETRIC_ACTIVE" dfdlx:repValues="1"/>
@@ -102,8 +107,12 @@
     </xs:restriction>
   </xs:simpleType>
 
-  <simpleType name="VN" dfdl:length="3">
-    <restriction base="xs:unsignedByte"/>
+  <xs:simpleType name="packetStratumEnum" dfdlx:repType="ntp:uint8">
+
+  </xs:simpleType>
+
+  <simpleType name="Mode" dfdl:length="3">
+	  <restriction base="xs:unsignedByte"/>
   </simpleType>
 
   <simpleType name="Stratum" dfdl:length="8">
