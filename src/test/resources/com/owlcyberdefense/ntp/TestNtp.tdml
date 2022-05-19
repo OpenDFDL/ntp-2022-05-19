@@ -10,12 +10,12 @@
   xmlns:ntp="urn:ntp"
   defaultRoundTrip="onePass">
 
-  <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
+  <parserTestCase name="test_ntp_05" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
     <document>
-      <documentPart type="file">test_01.bin</documentPart>
+      <documentPart type="file">data/5.dat</documentPart>
     </document>
     <infoset>
-      <dfdlInfoset type="file">test_01.bin.xml</dfdlInfoset>
+      <dfdlInfoset type="file">test_05.bin.xml</dfdlInfoset>
     </infoset>
   </parserTestCase>
 
