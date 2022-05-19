@@ -9,7 +9,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   defaultRoundTrip="onePass">
 
-  <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/ntp/xsd/ntp.dfdl.xsd">
+  <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
     <document>
       <documentPart type="file">test_01.bin</documentPart>
     </document>
