@@ -12,30 +12,25 @@
 
 	<include schemaLocation="baseFormat.dfdl.xsd"/>
 
-	<annotation>
-		<appinfo source="http://www.ogf.org/dfdl/">
-			<dfdl:format ref="ntp:baseFormat" lengthKind="explicit"/>
-		</appinfo>
-	</annotation>
+    <annotation>
+        <appinfo source="http://www.ogf.org/dfdl/">
+            <dfdl:format ref="ntp:baseFormat" lengthKind="explicit"/>
+        </appinfo>
+    </annotation>
 
-	<!-- NTP Short Format
-		 The 32-bit short format is used in delay and dispersion
-		 header fields where the full resolution and range of the other
-		 formats are not justified.  It includes a 16-bit unsigned seconds
-		 field and a 16-bit fraction field.
-		 https://www.rfc-editor.org/rfc/rfc5905#section-7
-	-->
-	<complexType name="ntpShortTime">
-		<sequence>
-			<xs:element name="seconds" type="xs:unsignedInt" dfdl:length="16"/>
-			<xs:element name="fraction" type="xs:int" dfdl:length="16"/>
-		</sequence>
-	</complexType>
-
-<!--    The 64-bit timestamp format is used in packet headers and other
-		places with limited word size.  It includes a 32-bit unsigned seconds
-		field spanning 136 years and a 32-bit fraction field resolving 232
-		picoseconds.-->
+    <!-- NTP Short Format
+         The 32-bit short format is used in delay and dispersion
+         header fields where the full resolution and range of the other
+         formats are not justified.  It includes a 16-bit unsigned seconds
+         field and a 16-bit fraction field.
+         https://www.rfc-editor.org/rfc/rfc5905#section-7
+    -->
+    <complexType name="ntpShortTime">
+        <sequence>
+            <xs:element name="seconds" type="xs:unsignedInt" dfdl:length="16"/>
+            <xs:element name="fraction" type="xs:int" dfdl:length="16"/>
+        </sequence>
+    </complexType>
 
 	<complexType name="ntpTimeStamp">
 		<xs:sequence>
@@ -48,7 +43,7 @@
 		</xs:sequence>
 	</complexType>
 
-	<!-- 
+	<!--
    The 128-bit date format is used where sufficient storage and word
    size are available.  It includes a 64-bit signed seconds field
    spanning 584 billion years and a 64-bit fraction field resolving .05
@@ -106,16 +101,6 @@
       <pattern value="RESERVED|SYMMETRIC_ACTIVE|SYMMETRIC_PASSIVE|CLIENT|SERVER|BROADCAST|NTP_CONTROL_MSG"/>
     </xs:restriction>
   </xs:simpleType>
-
-<!--
-  <simpleType name="LI" dfdl:length="2">
-	  <restriction base="xs:unsignedByte"/>
-  </simpleType>
--->
-
-  <simpleType name="VN" dfdl:length="3">
-	  <restriction base="xs:unsignedByte"/>
-  </simpleType>
 
   <simpleType name="Mode" dfdl:length="3">
 	  <restriction base="xs:unsignedByte"/>
