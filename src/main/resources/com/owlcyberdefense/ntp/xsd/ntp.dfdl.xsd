@@ -24,8 +24,8 @@
 		<sequence>
 
 			<element name="LI" type="ntp:leapIndicator"/>
-			<element name="VN" type="ntp:associationModes"/>
-			<element name="Mode" type="ntp:Mode"/>
+			<element name="VN" type="ntp:VN"/>
+			<element name="Mode" type="ntp:associationModes"/>
 			<element name="Stratum" type="ntp:Stratum"/>
 			<element name="Poll" type="ntp:Poll"/>
 			<element name="Precision" type="ntp:Precision"/>
