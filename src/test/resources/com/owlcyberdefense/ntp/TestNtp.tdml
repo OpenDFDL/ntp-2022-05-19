@@ -10,14 +10,23 @@
   xmlns:ntp="urn:ntp"
   defaultRoundTrip="onePass">
 
-    <parserTestCase name="test_ntp_02" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
-      <document>
-          <documentPart type="file">data/2.dat</documentPart>
-      </document>
-      <infoset>
-        <dfdlInfoset type="file">test_02.bin.xml</dfdlInfoset>
-      </infoset>
-    </parserTestCase>
+  <parserTestCase name="test_ntp_02" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
+    <document>
+        <documentPart type="file">data/2.dat</documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset type="file">test_02.bin.xml</dfdlInfoset>
+    </infoset>
+  </parserTestCase>
+
+  <parserTestCase name="test_ntp_05" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
+    <document>
+      <documentPart type="file">data/5.dat</documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset type="file">test_05.bin.xml</dfdlInfoset>
+    </infoset>
+  </parserTestCase>
 
   <!-- example hex data from pcap file ntp-only.pcap
   To make tests from these for comparsison with wireshark
