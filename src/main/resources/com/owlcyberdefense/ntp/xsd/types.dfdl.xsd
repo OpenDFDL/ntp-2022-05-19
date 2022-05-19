@@ -13,13 +13,21 @@
 
     <annotation>
         <appinfo source="http://www.ogf.org/dfdl/">
-            <dfdl:format ref="ntp:baseFormat"/>
+            <dfdl:format ref="ntp:baseFormat" lengthKind="explicit"/>
         </appinfo>
     </annotation>
 
+    <!-- NTP Short Format
+         The 32-bit short format is used in delay and dispersion
+         header fields where the full resolution and range of the other
+         formats are not justified.  It includes a 16-bit unsigned seconds
+         field and a 16-bit fraction field.
+         https://www.rfc-editor.org/rfc/rfc5905#section-7
+    -->
     <complexType name="ntpShortTime">
         <sequence>
-
+            <xs:element name="seconds" type="xs:unsignedInt" dfdl:length="16"/>
+            <xs:element name="fraction" type="xs:int" dfdl:length="16"/>
         </sequence>
     </complexType>
 
