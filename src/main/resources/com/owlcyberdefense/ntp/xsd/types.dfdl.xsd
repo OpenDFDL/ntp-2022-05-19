@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:fn="http://www.w3.org/2005/xpath-functions"
+        xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+        xmlns:ntp="urn:ntp"
+        targetNamespace="urn:ntp"
+        elementFormDefault="unqualified">
+
+    <include schemaLocation="baseFormat.dfdl.xsd"/>
+
+    <annotation>
+        <appinfo source="http://www.ogf.org/dfdl/">
+            <dfdl:format ref="ntp:baseFormat"/>
+        </appinfo>
+    </annotation>
+
+    <complexType name="ntpShortTime">
+        <sequence>
+
+        </sequence>
+    </complexType>
+
+    <complexType name="ntpTimeStamp">
+        <sequence>
+
+        </sequence>
+    </complexType>
+
+    <complexType name="ntpDate">
+        <sequence>
+
+        </sequence>
+    </complexType>
+
+</schema>
