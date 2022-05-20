@@ -10,13 +10,82 @@
   xmlns:ntp="urn:ntp"
   defaultRoundTrip="onePass">
 
-  <parserTestCase name="test_ntp_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
+  <parserTestCase name="test_ntp_01" root="Ntp"
+    model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd"
+    roundTrip="onePass">
+
     <document>
-      <documentPart type="file">test_01.bin</documentPart>
+      <!--LI-->
+      <documentPart type="bits">
+        11
+      </documentPart>
+
+      <!--VN-->
+      <documentPart type="bits">
+        011
+      </documentPart>
+
+      <!--Mode-->
+      <documentPart type="bits">
+        001
+      </documentPart>
+
+      <!--Stratum-->
+      <documentPart type="byte">
+        00
+      </documentPart>
+
+      <!--Poll-->
+      <documentPart type="byte">
+        0a
+      </documentPart>
+
+      <!--Precision-->
+      <documentPart type="byte">
+        fa
+      </documentPart>
+
+      <!--Root Delay-->
+      <documentPart type="byte">
+        00 00 00 00
+      </documentPart>
+
+      <!--Root Dispersion-->
+      <documentPart type="byte">
+        00 01 02 90 
+      </documentPart>
+
+      <!--Reference ID-->
+      <documentPart type="byte">
+        00 00 00 00
+      </documentPart>
+
+      <!--Reference TS-->
+      <documentPart type="byte">
+        00 00 00 00 00 00 00 00
+      </documentPart>
+
+      <!--Origin TS-->
+      <documentPart type="byte">
+        00 00 00 00 00 00 00 00
+      </documentPart>
+
+      <!--Receive TS-->
+      <documentPart type="byte">
+        00 00 00 00 00 00 00 00
+      </documentPart>
+
+      <!--Transit TS-->
+      <documentPart type="byte">
+        c5 02 04 ec ec 42 ee 92
+      </documentPart>
+      
     </document>
+
     <infoset>
       <dfdlInfoset type="file">test_01.bin.xml</dfdlInfoset>
     </infoset>
+
   </parserTestCase>
 
   <!-- example hex data from pcap file ntp-only.pcap
