@@ -17,5 +17,7 @@ class TestNtp {
 
   import TestNtp._
 
-  @Test def test_ntp_01(): Unit = { runner.runOneTest("test_ntp_01") }
+  @Test def test_ntp_05(): Unit = { runner.runOneTest("test_ntp_05") }
+  @Test def test_all_ff_01(): Unit = { runner.runOneTest("test_all_ff_01") }
+
 }

@@ -18,7 +18,7 @@
                    byteOrder="bigEndian"
                    bitOrder="mostSignificantBitFirst"
                    encoding="ASCII"
-				   lengthKind='explicit'
+				   lengthKind='implicit'
 				   lengthUnits='bits'
                    alignmentUnits="bits"
                    alignment="1"

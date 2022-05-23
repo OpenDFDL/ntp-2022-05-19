@@ -83,7 +83,56 @@
     </document>
 
     <infoset>
-      <dfdlInfoset type="file">test_01.bin.xml</dfdlInfoset>
+      <dfdlInfoset type="file">test_05.bin.xml</dfdlInfoset>
+    </infoset>
+    
+  </parserTestCase>
+
+  <parserTestCase name="test_all_ff_01" root="Ntp" model="com/owlcyberdefense/ntp/xsd/ntp.dfdl.xsd">
+    <document>
+      <documentPart type="byte"><![CDATA[
+                              ff ff ff ff ff ff
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ff ff ff ff ff ff ff ff ff ff
+]]></documentPart>
+    </document>
+    <infoset>
+      <dfdlInfoset>
+        <ntp:Ntp xmlns:ntp="urn:ntp">
+          <LI>3</LI>
+          <VN>7</VN>
+          <Mode>7</Mode>
+          <Stratum>255</Stratum>
+          <Poll>255</Poll>
+          <Precision>255</Precision>
+          <RootDelay>
+            <seconds>65535</seconds>
+            <fraction>-1</fraction>
+          </RootDelay>
+          <RootDispersion>
+            <seconds>65535</seconds>
+            <fraction>-1</fraction>
+          </RootDispersion>
+          <ReferenceID>-1</ReferenceID>
+          <ReferenceTimeStamp>
+            <seconds>4294967295</seconds>
+            <fraction>-1</fraction>
+          </ReferenceTimeStamp>
+          <OriginTimeStamp>
+            <seconds>4294967295</seconds>
+            <fraction>-1</fraction>
+          </OriginTimeStamp>
+          <ReceiveTimeStamp>
+            <seconds>4294967295</seconds>
+            <fraction>-1</fraction>
+          </ReceiveTimeStamp>
+          <TransmitTimeStamp>
+            <seconds>4294967295</seconds>
+            <fraction>-1</fraction>
+          </TransmitTimeStamp>
+        </ntp:Ntp>
+      </dfdlInfoset>
     </infoset>
 
   </parserTestCase>
