@@ -1,19 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2012-2026 Owl Cyber Defense. All rights reserved.
+Please see the accompanying COPYRIGHT.txt file for terms of use.
+-->
 <schema
   xmlns:xs="http://www.w3.org/2001/XMLSchema"
   xmlns="http://www.w3.org/2001/XMLSchema"
   xmlns:fn="http://www.w3.org/2005/xpath-functions"
-  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/" 
-  xmlns:tns="urn:ntp"
-  targetNamespace="urn:ntp">
+  xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+  xmlns:ntp="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp"
+  targetNamespace="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp">
 
-  <include schemaLocation="org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
+  <include schemaLocation="/org/apache/daffodil/xsd/DFDLGeneralFormat.dfdl.xsd" />
 
   <annotation>
     <appinfo source="http://www.ogf.org/dfdl/">
       <dfdl:defineFormat name="baseFormat">
-      <dfdl:format ref="tns:GeneralFormat"
+      <dfdl:format ref="ntp:GeneralFormat"
                    representation="binary"
                    byteOrder="bigEndian"
                    bitOrder="mostSignificantBitFirst"

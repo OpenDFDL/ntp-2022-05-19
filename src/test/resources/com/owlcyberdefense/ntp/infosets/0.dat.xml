@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ntp:Ntp xmlns:ntp="urn:ntp">
+<ntp>
   <LI>3</LI>
   <VN>3</VN>
   <Mode>1</Mode>
@@ -31,4 +31,4 @@
     <seconds>3305243884</seconds>
     <fraction>-331157870</fraction>
   </TransmitTimeStamp>
-</ntp:Ntp>
+</ntp>

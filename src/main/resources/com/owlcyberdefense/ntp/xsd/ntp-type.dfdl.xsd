@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--
+Copyright (c) 2012-2026 Owl Cyber Defense. All rights reserved.
+Please see the accompanying COPYRIGHT.txt file for terms of use.
+-->
 <schema
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
-	xmlns:ntp="urn:ntp"
-	targetNamespace="urn:ntp"
-	elementFormDefault="unqualified">
+	xmlns:ntp="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp"
+	targetNamespace="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp">
 
-	<include schemaLocation="baseFormat.dfdl.xsd" />
-	<include schemaLocation="types.dfdl.xsd" />
+	<include schemaLocation="ntp-baseFormat.dfdl.xsd" />
+	<include schemaLocation="ntp-base-types.dfdl.xsd" />
 
 	<annotation>
 		<appinfo source="http://www.ogf.org/dfdl/">
@@ -18,11 +20,8 @@
 		</appinfo>
 	</annotation>
 
-	<element name="Ntp" type="ntp:ntp" />
-
 	<complexType name="ntp">
 		<sequence>
-
 			<element name="LI" type="ntp:LI"/>
 			<element name="VN" type="ntp:VN"/>
 			<element name="Mode" type="ntp:Mode"/>
@@ -36,7 +35,7 @@
 			<element name="OriginTimeStamp" type="ntp:ntpTimeStamp"/>
 			<element name="ReceiveTimeStamp" type="ntp:ntpTimeStamp"/>
 			<element name="TransmitTimeStamp" type="ntp:ntpTimeStamp"/>
-
 		</sequence>
 	</complexType>
+
 </schema>

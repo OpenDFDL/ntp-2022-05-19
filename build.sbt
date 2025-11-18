@@ -1,19 +1,27 @@
 name := "dfdl-ntp"
 
-organization := "com.owlcyberdefense.ntp"
+organization := "com.owlcyberdefense"
 
-version := "0.1.0-SNAPSHOT"
+//
+// Final assembly DFDL schemas should be setup to create a lib_managed baseDirectory
+// This makes it easy to provide tools access to the required dependency jar files.
+//
+retrieveManaged := true
 
-scalaVersion := "2.12.15"
+useCoursier := false // because of bug, retrieveManaged won't work without this
 
-libraryDependencies ++= Seq(
-  "com.github.sbt" % "junit-interface" % "0.13.2" % "test",
-  "junit" % "junit" % "4.13.2" % "test",
-  "org.apache.daffodil" %% "daffodil-tdml-processor" % "3.3.0" % "test",
-  "org.apache.logging.log4j" % "log4j-core" % "2.17.1" % "test",
+version := "1.0.0"
+
+// defaults to version of daffodil used by daffodil-sbt plugin
+// daffodilVersion := "4.0.0" // or can be 3.11.0, 3.10.0, 3.9.0, 3.7.0, 3.4.0
+
+enablePlugins(DaffodilPlugin)
+
+daffodilPackageBinVersions := Seq(daffodilVersion.value)
+
+daffodilPackageBinInfos := Seq(
+  DaffodilBinInfo(
+    schema = "/com/owlcyberdefense/ntp/xsd/ntp-root.dfdl.xsd")
 )
 
-testOptions += Tests.Argument(TestFrameworks.JUnit, "-v")
-
-crossPaths := false
-
+daffodilTdmlUsesPackageBin := true

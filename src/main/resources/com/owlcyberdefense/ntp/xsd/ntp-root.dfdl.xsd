@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2012-2026 Owl Cyber Defense. All rights reserved.
+Please see the accompanying COPYRIGHT.txt file for terms of use.
+-->
+
+<schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:fn="http://www.w3.org/2005/xpath-functions"
+	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+	xmlns:ntp="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp">
+  <!--
+  No target namespace intentionally
+
+  This file just defines the root <ntp>...</ntp> element.
+
+  We avoid element namespaces entirely by putting root elements in
+  no namespace.
+  -->
+	<import namespace="urn:owlcyberdefense.com:schema:dfdl:ntp:ntp" schemaLocation="ntp-type.dfdl.xsd" />
+
+	<annotation>
+		<appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format ref="ntp:baseFormat" />
+		</appinfo>
+	</annotation>
+
+	<element name="ntp" type="ntp:ntp" />
+
+</schema>
