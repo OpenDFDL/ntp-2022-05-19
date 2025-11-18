@@ -1,1 +1,5 @@
-## DFDL Schema Training Project 2022-05-19 using NTP message data format
+# Obsolete
+
+This schema superceded by:
+
+    https://github.com/DFDLSchemas/ntp
